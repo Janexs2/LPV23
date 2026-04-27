@@ -517,7 +517,6 @@ export function Hero() {
           /* Ativa elementos desktop-only (ocultos via inline style no mobile) */
           .h-social-proof { display: flex !important; }
           .h-photo-tag    { display: flex !important; }
-          .h-photo-accent { display: flex !important; }
 
           /* === COLUNA DE FOTO — 45% === */
           .h-photo-col {
@@ -582,45 +581,6 @@ export function Hero() {
           .h-ring-b { width: 70px;  height: 70px;  top: 8%;  right: 22%; z-index: 4; }
           .h-blob   { bottom: 28%; left: 3%; z-index: 4; width: 40px; height: 40px; }
           .h-dot    { top: 28%; right: 14%; z-index: 4; }
-
-          /* Número flutuante decorativo na foto — elemento visual */
-          .h-photo-accent {
-            display: flex;
-            position: absolute;
-            bottom: 56px;
-            left: -24px;
-            z-index: 5;
-            background: rgba(255,255,255,0.88);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(148,110,61,0.18);
-            border-radius: 14px;
-            padding: 14px 20px;
-            gap: 12px;
-            align-items: center;
-            box-shadow: 0 8px 32px rgba(148,110,61,0.14);
-            animation: floatUp 5s ease-in-out infinite 1.5s;
-            min-width: 190px;
-          }
-          .h-photo-accent-icon {
-            width: 38px; height: 38px;
-            background: linear-gradient(135deg, #946e3d, #c9956e);
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
-            font-size: 18px;
-          }
-          .h-photo-accent-val {
-            font-family: var(--font-serif), serif;
-            font-size: 1.3rem; font-weight: 700;
-            color: #946e3d; line-height: 1;
-          }
-          .h-photo-accent-lbl {
-            font-family: var(--font-sans), sans-serif;
-            font-size: 10px; letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #5a5255; opacity: 0.65;
-            margin-top: 3px;
-          }
 
           /* Tag CRN flutuante no topo da foto */
           .h-photo-tag {
@@ -699,14 +659,7 @@ export function Hero() {
               <span className="h-photo-tag-txt">{CONFIG.crn}</span>
             </div>
 
-            {/* === Card flutuante de experiência — desktop only === */}
-            <div className="h-photo-accent" style={{ display: 'none' }}>
-              <div className="h-photo-accent-icon">🌿</div>
-              <div>
-                <div className="h-photo-accent-val">13+</div>
-                <div className="h-photo-accent-lbl">Anos de Experiência</div>
-              </div>
-            </div>
+
           </div>
 
           {/* ══ Texto ══ */}
