@@ -1,0 +1,242 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  --font-serif: var(--font-serif, ui-serif, Georgia, serif);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
+
+/* ── Brand palette — Nova Identidade Visual Joice Mazzini ── */
+:root {
+  /* Nova paleta */
+  --brand-dourado-escuro: #946e3d;
+  --brand-dourado-claro: #edd896;
+  --brand-creme: #f4efec;
+  --brand-rosa: #cd7778;
+  --brand-cinza: #565455;
+
+  /* Aliases retrocompatíveis */
+  --brand-primary: #946e3d;
+  --brand-secondary: #7a5a2e;
+  --brand-accent: #946e3d;
+  --brand-accent-light: #edd896;
+  --brand-bg: #f4efec;
+  --brand-text: #565455;
+  --brand-neutral: #e8e0da;
+  --brand-white: #FFFFFF;
+}
+
+/* ── Scroll animation utility ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Overflow safety — prevent horizontal scroll ── */
+section, footer, header {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Mobile hero editorial card ── */
+@media (max-width: 1023px) {
+  .hero-editorial-card {
+    width: 78%;
+    max-width: 300px;
+    margin: 0 auto;
+    border-radius: 52% 48% 58% 42% / 45% 55% 45% 55%;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: 0 20px 50px rgba(13,58,122,0.50), 0 8px 20px rgba(0,0,0,0.25);
+    aspect-ratio: 3/4;
+    position: relative;
+  }
+}
+
+/* ── Editorial photo treatment — shared ── */
+.editorial-photo {
+  border: 4px solid white;
+  box-shadow: 0 20px 40px -15px rgba(0,0,0,0.12), 0 8px 24px rgba(27,95,191,0.10);
+}
+
+/* ── Apoio section — editorial mobile layout ── */
+@media (max-width: 1023px) {
+  .apoio-img-main {
+    width: 78%;
+    margin-left: 10%;
+    border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+    overflow: hidden;
+    box-shadow: 8px 12px 32px rgba(27,95,191,0.22);
+    border: 4px solid white;
+    aspect-ratio: 4/5;
+  }
+  .apoio-img-secondary {
+    width: 52%;
+    margin-right: 12%;
+    margin-left: auto;
+    border-radius: 45% 55% 40% 60% / 55% 40% 60% 45%;
+    overflow: hidden;
+    box-shadow: -6px 10px 24px rgba(201,163,59,0.18);
+    border: 4px solid white;
+    aspect-ratio: 1/1;
+  }
+}
+
+/* ── Sobre section — editorial mobile ── */
+@media (max-width: 1023px) {
+  .sobre-photo-wrap {
+    width: 75%;
+    margin: 0 auto 24px auto;
+    border-radius: 55% 45% 60% 40% / 50% 55% 45% 50%;
+    overflow: hidden;
+    box-shadow: 10px 14px 36px rgba(27,95,191,0.20);
+    border: 4px solid white;
+  }
+}
+
+/* ── Uniform section spacing ── */
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* ── Modern section rhythm ── */
+section {
+  position: relative;
+}
+
+/* Section separator accent lines */
+.section-accent-top::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(148,110,61,0.2), transparent);
+}
+
+/* ── Fluid type scale ── */
+:root {
+  --step-0: clamp(0.875rem, 2vw, 1rem);
+  --step-1: clamp(1rem, 2.5vw, 1.25rem);
+  --step-2: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* ── Scroll reveal ── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Card depth system ── */
+.card-depth-1 { box-shadow: 0 2px 8px rgba(148,110,61,0.08), 0 1px 3px rgba(0,0,0,0.05); }
+.card-depth-2 { box-shadow: 0 6px 24px rgba(148,110,61,0.12), 0 2px 8px rgba(0,0,0,0.07); }
+.card-depth-3 { box-shadow: 0 12px 40px rgba(148,110,61,0.18), 0 4px 16px rgba(0,0,0,0.1); }
+
+/* ── Modern focus rings ── */
+:focus-visible {
+  outline: 2px solid #946e3d;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
